@@ -9,6 +9,11 @@ type IncomingItem = {
 
 export async function createOrder(req: Request, res: Response) {
     try {
+    const existingOrder = await Order.findOne({ orderId: req.body.numeroPedido?.trim() });
+    if (existingOrder) {
+      return res.status(409).json({ message: 'orderId already exists' });
+    }
+
     const mapped = {
       orderId: req.body.numeroPedido?.trim(),
       value: req.body.valorTotal,
@@ -25,6 +30,6 @@ export async function createOrder(req: Request, res: Response) {
 
   } catch (err) {
     console.log(err);
-    res.sendStatus(500);
+    res.status(500).json({ message: 'Failed to create order' });
   }
 }

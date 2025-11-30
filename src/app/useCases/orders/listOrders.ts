@@ -10,6 +10,6 @@ export async function listOrders(req: Request, res: Response) {
 
   } catch (error) {
     console.log(error);
-    res.sendStatus(500);
+    res.status(500).json({ message: 'Failed to list orders' });
   }
 }

@@ -4,6 +4,7 @@ export const Order = model('Order', new Schema({
   orderId: {
     type: String,
     required: true,
+    unique: true,
   },
   value: {
     type: Number,

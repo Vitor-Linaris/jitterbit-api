@@ -3,7 +3,7 @@ import { Router } from 'express';
 import { listOrders } from './app/useCases/orders/listOrders';
 import { createOrder } from './app/useCases/orders/createOrder';
 import { getOrder } from './app/useCases/orders/getOrder';
-//import { cancelOrder } from './app/useCases/orders/cancelOrder';
+import { cancelOrder } from './app/useCases/orders/cancelOrder';
 
 export const router = Router();
 
@@ -17,5 +17,5 @@ router.post('/order', createOrder);
 router.get('/order/:orderId', getOrder);
 
 // delete order
-//router.delete('/orders/:orderId', cancelOrder);
+router.delete('/order/:orderId', cancelOrder);
 

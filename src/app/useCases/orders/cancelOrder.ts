@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { Order } from '../../models/Order';
 
-export async function getOrder(req: Request, res: Response) {
+export async function cancelOrder(req: Request, res: Response) {
   try {
     const { orderId } = req.params;
 
@@ -10,15 +10,15 @@ export async function getOrder(req: Request, res: Response) {
       return res.status(400).json({ message: 'orderId is required' });
     }
 
-    const order = await Order.findOne({ orderId });
+    const result = await Order.deleteOne({ orderId });
 
-    if (!order) {
+    if (result.deletedCount === 0) {
       return res.status(404).json({ message: 'Order not found' });
     }
 
-    res.json(order);
+    res.sendStatus(204);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: 'Failed to get order' });
+    res.status(500).json({ message: 'Failed to cancel order' });
   }
 }
