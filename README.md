@@ -30,6 +30,13 @@ npm start
 - `POST /order` — cria pedido (campos esperados: `numeroPedido`, `valorTotal`, `items[]` com `idItem`, `quantidadeItem`, `valorItem`)
 - `DELETE /order/:orderId` — exclui pedido
 
+## MongoDB via Docker
+Se não quiser instalar Mongo localmente, suba um contêiner:
+```bash
+docker run --name jitterbit -p 27017:27017 -d mongo
+```
+Certifique-se de que está rodando antes de iniciar a API.
+
 ## Postman
 Já existe uma collection pronta em `postman/Jitterbit.postman_collection.json`.
 
