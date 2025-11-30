@@ -31,10 +31,12 @@ npm start
 - `DELETE /order/:orderId` — exclui pedido
 
 ## Postman
-1) Abra o Postman e exporte sua Collection de testes (File > Export) em formato v2.1.
-2) Salve o arquivo exportado no repositório, por exemplo em `postman/jitterbit-api.postman_collection.json`.
-3) Para reutilizar, importe esse arquivo no Postman (File > Import) ou use o botão Import e selecione o JSON.
-4) Mantenha o arquivo atualizado quando mudar as requisições para facilitar o compartilhamento.
+Já existe uma collection pronta em `postman/Jitterbit.postman_collection.json`.
+
+Como usar:
+- No Postman, clique em **Import** e selecione o arquivo `postman/Jitterbit.postman_collection.json`.
+- Após importar, ajuste o `base_url` (se houver variável) ou edite as URLs para `http://localhost:3002`.
+- Atualize a collection se mudar alguma rota e reexporte para manter o arquivo em repositório sincronizado.
 
 ## Notas
 - Se já existir `orderId` duplicado no banco, ajuste ou limpe a coleção antes de testar a unicidade.
