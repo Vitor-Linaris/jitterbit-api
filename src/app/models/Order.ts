@@ -1,4 +1,4 @@
-import {model, Schema} from 'mongoose';
+import { model, Schema } from 'mongoose';
 
 export const Order = model('Order', new Schema({
   orderId: {
@@ -13,20 +13,20 @@ export const Order = model('Order', new Schema({
     type: Date,
     default: Date.now,
   },
-  items: {
-    required: true,
-    type: [{
-      product: {
-        type: Schema.Types.ObjectId,
-        required: true,
-        ref: 'Item',
-      },
-      quantity: {
-        type: Number,
-        default: 1,
-      },
-    }],
-  },
+  items: [{
+    productId: {
+      type: Number,
+      required: true,
+    },
+    quantity: {
+      type: Number,
+      default: 1,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+  }]
+}, {
+  versionKey: false
 }));
-
-

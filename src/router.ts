@@ -1,35 +1,21 @@
-import path from 'node:path';
 import { Router } from 'express';
 
-//import { listProducts } from './app/useCases/Products/listProducts';
-//import { createProducts } from './app/useCases/Products/createProducts';
-//import { listOrders } from './app/useCases/orders/listOrders';
-//import { createOrder } from './app/useCases/orders/createOrder';
+import { listOrders } from './app/useCases/orders/listOrders';
+import { createOrder } from './app/useCases/orders/createOrder';
+import { getOrder } from './app/useCases/orders/getOrder';
 //import { cancelOrder } from './app/useCases/orders/cancelOrder';
 
 export const router = Router();
 
-// list categories
-//router.get('/categories', listCategories);
-
-// create category
-// router.post('/categories', createCategory);
-
-/* // list products
-router.get('/products', listProducts);
-
-// create product
-router.post('/products' , createProducts);
-
-// Get product by category
-router.get('/categories/:categoryId/products', listProductsByCategory);
-
 // list orders
-router.get('/orders', listOrders);
+router.get('/order/list', listOrders);
 
 // create order
-router.post('/orders', createOrder);
+router.post('/order', createOrder);
+
+// get order by id
+router.get('/order/:orderId', getOrder);
 
 // delete order
-router.delete('/orders/:orderId', cancelOrder); */
+//router.delete('/orders/:orderId', cancelOrder);
 
